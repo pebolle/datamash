@@ -1,3 +1,0 @@
-# datamash
-
-The datamash package
