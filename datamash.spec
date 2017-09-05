@@ -7,7 +7,7 @@
 		     echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
-Version:        1.1.1
+Version:        1.2
 Release:        1%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
@@ -70,5 +70,8 @@ if [ $1 = 0 ] ; then
 fi
 
 %changelog
+* Tue Sep 05 2017 Hannes Frederic Sowa <hannes@stressinduktion.org> - 1.2-1
+- new upstream release 1.2-1
+
 * Fri Jun 30 2017 Hannes Frederic Sowa <hannes@stressinduktion.org> 1.1.1-1
 - Initial version of the package
