@@ -58,7 +58,7 @@ files.
 %{compdir}/datamash
 
 %license COPYING
-%doc README-release README NEWS THANKS TODO AUTHORS ChangeLog
+%doc README NEWS THANKS TODO AUTHORS ChangeLog
 %{_mandir}/man1/datamash.1.gz
 
 %post
