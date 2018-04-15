@@ -7,8 +7,8 @@
 		     echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
-Version:        1.2
-Release:        2%{?dist}
+Version:        1.3
+Release:        1%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -36,7 +36,6 @@ files.
 %make_build
 
 %install
-%{__rm} -rf %{buildroot}
 %make_install
 %{__rm} -f %{buildroot}/%{_infodir}/dir
 %find_lang %{name}
@@ -70,6 +69,9 @@ if [ $1 = 0 ] ; then
 fi
 
 %changelog
+* Sun Apr 15 2018 Filipe Rosset <rosset.filipe@gmail.com> - 1.3-1
+- new upstream release 1.3
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
