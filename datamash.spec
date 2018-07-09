@@ -18,6 +18,7 @@ Source0:        http://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Patch0:         datamash-1.3-fix-tests.patch
 
 Provides:       bundled(gnulib)
+BuildRequires:  gcc
 BuildRequires:  gettext perl(Digest::MD5) perl(Digest::SHA) perl(Data::Dumper)
 BuildRequires:  pkgconfig bash-completion
 Requires(preun): info
