@@ -8,7 +8,7 @@
 
 Name:           datamash
 Version:        1.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -72,6 +72,9 @@ if [ $1 = 0 ] ; then
 fi
 
 %changelog
+* Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Sun Apr 15 2018 Filipe Rosset <rosset.filipe@gmail.com> - 1.3-1
 - new upstream release 1.3
 - added upstream patch to fix tests on some platforms
