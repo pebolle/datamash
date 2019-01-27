@@ -63,14 +63,6 @@ files.
 %doc README NEWS THANKS TODO AUTHORS ChangeLog
 %{_mandir}/man1/datamash.1.gz
 
-%post
-/sbin/install-info %{_infodir}/%{name}.info %{_infodir}/dir || :
-
-%preun
-if [ $1 = 0 ] ; then
-  /sbin/install-info --delete %{_infodir}/%{name}.info %{_infodir}/dir || :
-fi
-
 %changelog
 * Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
