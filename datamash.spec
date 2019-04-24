@@ -8,7 +8,7 @@
 
 Name:           datamash
 Version:        1.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -54,7 +54,7 @@ files.
 %files -f %{name}.lang
 %{_bindir}/datamash
 %{_datadir}/datamash/
-%{_infodir}/datamash.info.gz
+%{_infodir}/datamash.info.*
 %dir %{compdir}/..
 %dir %{compdir}
 %{compdir}/datamash
@@ -64,6 +64,9 @@ files.
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Wed Apr 24 2019 Björn Esser <besser82@fedoraproject.org> - 1.3-4
+- Remove hardcoded gzip suffix from GNU info pages
+
 * Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
