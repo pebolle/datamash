@@ -3,21 +3,18 @@
 # /etc/bash_completion.d seems to be the correct location, with a
 # lot of entries symlinked from /usr/share/bash-completion.
 %define compdir %(pkg-config --exists bash-completion &&
-		     pkg-config --variable=completionsdir bash-completion ||
-		     echo %_sysconfdir/bash_completion.d)
+pkg-config --variable=completionsdir bash-completion ||
+echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
-Version:        1.3
-Release:        5%{?dist}
+Version:        1.5
+Release:        1%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
 URL:            https://www.gnu.org/software/%{name}/
 Source0:        http://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-#added upstream patch to fix tests on some platforms
-Patch0:         datamash-1.3-fix-tests.patch
 
-Provides:       bundled(gnulib)
 BuildRequires:  gcc
 BuildRequires:  gettext perl(Digest::MD5) perl(Digest::SHA) perl(Data::Dumper)
 BuildRequires:  pkgconfig bash-completion
@@ -44,12 +41,19 @@ files.
 %find_lang %{name}
 %{__mkdir_p} %{buildroot}%{compdir}
 %{__mv} %{buildroot}%{_datadir}/datamash/bash-completion.d/datamash %{buildroot}%{compdir}
-# rpmlint: E: sourced-script-with-shebang /etc/bash_completion.d/datamash /bin/bash
+# E: non-executable-script /usr/share/bash-completion/completions/datamash 644 /bin/bash
 %{__sed} -i '1d' %{buildroot}%{compdir}/datamash
 
 %check
 %{__make} check
 
+%post
+/sbin/install-info %{_infodir}/%{name}.info %{_infodir}/dir || :
+
+%preun
+if [ $1 = 0 ];then
+/sbin/install-info –delete %{_infodir}/%{name}.info %{_infodir}/dir || :
+fi
 
 %files -f %{name}.lang
 %{_bindir}/datamash
@@ -64,6 +68,9 @@ files.
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Fri Sep 27 2019 Jirka Hladky <hladky.jiri@gmail.com> - 1.5-1
+- New upstream release 1.5
+
 * Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
