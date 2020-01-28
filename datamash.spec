@@ -8,7 +8,7 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -68,6 +68,9 @@ fi
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Fri Sep 27 2019 Jirka Hladky <hladky.jiri@gmail.com> - 1.5-1
 - New upstream release 1.5
 
