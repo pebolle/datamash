@@ -17,6 +17,7 @@ Source0:        http://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  gettext perl(Digest::MD5) perl(Digest::SHA) perl(Data::Dumper)
+BuildRequires:  perl(FileHandle) perl(File::Compare) perl(File::Find)
 BuildRequires:  pkgconfig bash-completion
 Requires(preun): info
 Requires(post): info
