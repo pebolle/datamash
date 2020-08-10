@@ -8,7 +8,7 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.6
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -33,6 +33,10 @@ files.
 %{?el6:sed -i -e 's/^.UR //g' datamash.1}
 
 %build
+# LTO causes a testsuite failure for ppc64le.  Disable LTO for now
+%ifarch ppc64le
+%define _lto_cflags %{nil}
+%endif
 %configure
 %make_build
 
@@ -69,6 +73,9 @@ fi
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Mon Aug 10 2020 Jeff Law <law@redhat.com> - 1.6-4
+- Disable LTO for now.
+
 * Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.6-3
 - Second attempt - Rebuilt for
   https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
