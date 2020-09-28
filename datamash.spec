@@ -8,7 +8,7 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.6
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -33,10 +33,6 @@ files.
 %{?el6:sed -i -e 's/^.UR //g' datamash.1}
 
 %build
-# LTO causes a testsuite failure for ppc64le.  Disable LTO for now
-%ifarch ppc64le
-%define _lto_cflags %{nil}
-%endif
 %configure
 %make_build
 
@@ -73,6 +69,9 @@ fi
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Mon Sep 28 2020 Jeff Law <law@redhat.com> - 1.6-5
+- Re-enable LTO now that upstream GCC bugs have been fixed
+
 * Mon Aug 10 2020 Jeff Law <law@redhat.com> - 1.6-4
 - Disable LTO for now.
 
