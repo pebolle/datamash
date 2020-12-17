@@ -19,6 +19,7 @@ BuildRequires:  gcc
 BuildRequires:  gettext perl(Digest::MD5) perl(Digest::SHA) perl(Data::Dumper)
 BuildRequires:  perl(FileHandle) perl(File::Compare) perl(File::Find)
 BuildRequires:  pkgconfig bash-completion
+BuildRequires: make
 Requires(preun): info
 Requires(post): info
 
