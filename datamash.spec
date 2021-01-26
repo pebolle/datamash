@@ -8,7 +8,7 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.6
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -70,6 +70,9 @@ fi
 %{_mandir}/man1/datamash.1.gz
 
 %changelog
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.6-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Mon Sep 28 2020 Jeff Law <law@redhat.com> - 1.6-5
 - Re-enable LTO now that upstream GCC bugs have been fixed
 
