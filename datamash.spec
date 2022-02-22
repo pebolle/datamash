@@ -7,13 +7,14 @@ pkg-config --variable=completionsdir bash-completion ||
 echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
-Version:        1.6
-Release:        8%{?dist}
+Version:        1.7
+Release:        1%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
 URL:            https://www.gnu.org/software/%{name}/
 Source0:        http://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+Patch1:         datamash-1.7-decorate.patch
 
 BuildRequires:  gcc
 BuildRequires:  gettext perl(Digest::MD5) perl(Digest::SHA) perl(Data::Dumper)
@@ -29,9 +30,12 @@ numeric,textual and statistical operations on input textual data
 files.
 
 %prep
-%autosetup -p 1
+%setup
 # .UR not defined in el6 an macros
 %{?el6:sed -i -e 's/^.UR //g' datamash.1}
+%ifarch armv7hl
+%patch1 -p1
+%endif
 
 %build
 %configure
@@ -58,7 +62,7 @@ if [ $1 = 0 ];then
 fi
 
 %files -f %{name}.lang
-%{_bindir}/datamash
+%{_bindir}/*
 %{_datadir}/datamash/
 %{_infodir}/datamash.info.*
 %dir %{compdir}/..
@@ -67,9 +71,12 @@ fi
 
 %license COPYING
 %doc README NEWS THANKS TODO AUTHORS ChangeLog
-%{_mandir}/man1/datamash.1.gz
+%{_mandir}/man1/*
 
 %changelog
+* Mon Feb 21 2022 Jirka Hladky <hladky.jiri@gmail.com> - 1.7-1
+- New upstream release 1.7
+
 * Thu Jan 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.6-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
