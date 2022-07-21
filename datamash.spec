@@ -8,7 +8,7 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
 License:        GPLv3+
@@ -74,6 +74,9 @@ fi
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Mon Feb 21 2022 Jirka Hladky <hladky.jiri@gmail.com> - 1.7-1
 - New upstream release 1.7
 
