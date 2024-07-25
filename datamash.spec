@@ -8,10 +8,11 @@ echo %_sysconfdir/bash_completion.d)
 
 Name:           datamash
 Version:        1.8
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        A statistical, numerical and textual operations tool
 
-License:        GPLv3+
+# Automatically converted from old format: GPLv3+ - review is highly recommended.
+License:        GPL-3.0-or-later
 URL:            https://www.gnu.org/software/%{name}/
 Source0:        https://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 
@@ -72,6 +73,9 @@ fi
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jul 25 2024 Miroslav Suchý <msuchy@redhat.com> - 1.8-6
+- convert license to SPDX
+
 * Wed Jul 17 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.8-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
