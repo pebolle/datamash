@@ -1,0 +1,19 @@
+commit 914238bc24019cd9b6e8c8e75041a36cb703637a
+Author: Georg Sauthoff <mail@gms.tf>
+Date:   Fri Jan 24 00:48:44 2025 +0100
+
+    fix incomplete declaration for C23
+
+diff --git a/src/crosstab.h b/src/crosstab.h
+index 9f7b235..62c2468 100644
+--- a/src/crosstab.h
++++ b/src/crosstab.h
+@@ -47,7 +47,7 @@ crosstab_add_result (struct crosstab* ct,
+                       const char* row, const char* col, const char* data);
+ 
+ void
+-crosstab_print ();
++crosstab_print (const struct crosstab* ct);
+ 
+ void
+ crosstab_free (struct crosstab* ct);
